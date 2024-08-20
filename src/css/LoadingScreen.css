@@ -1,0 +1,24 @@
+.box {
+    --mask:
+      radial-gradient(50px at 30% calc(100% - 30px), #000 99%, #0000 101%) 20% 0/60px 100%,
+      radial-gradient(50px at 70% calc(100% - 30px), #000 99%, #0000 101%) 80% 0/60px 100%,
+      radial-gradient(40px at 50% calc(100% - 10px), #000 99%, #0000 101%) 50% 0/80px 100%;
+  
+    -webkit-mask: var(--mask);
+            mask: var(--mask);
+    background-color: #2e1f14;
+    height: 0px; 
+    animation: heightIncrease 5s ease forwards;
+  }
+  
+  @keyframes heightIncrease {
+    0% {
+      height: 0;
+      position: fixed ;
+      top: 0;
+    }
+    100% {
+      height: 100vh;
+    }
+  }
+  

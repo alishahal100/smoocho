@@ -1,0 +1,12 @@
+.drop-animation {
+  animation: dropToBottom 5s ease forwards;
+}
+
+@keyframes dropToBottom {
+  0% {
+    transform: translateY(-100%) scaleY(-1);
+  }
+  100% {
+    transform: translateY(0) scaleY(-1);
+  }
+}
