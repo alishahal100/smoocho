@@ -1,5 +1,15 @@
+/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+
+
+
 .drop-animation {
-  animation: dropToBottom 5s ease forwards;
+  animation: dropToBottom 3s ease forwards;
 }
 
 @keyframes dropToBottom {
@@ -19,10 +29,24 @@
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(100);
   }
 }
 
 .animate-slide-down {
   animation: slide-down 0.5s ease-out;
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in-animation {
+  animation: fadeIn 2s ease-in-out 1s forwards; /* Start after 3 seconds with 2s duration */
+}
+

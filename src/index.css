@@ -2,8 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 /* index.css or global.css */
-body {
-    @apply font-sans;
-    background: white;
-  }
-  
