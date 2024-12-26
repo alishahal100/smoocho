@@ -30,11 +30,11 @@ const Banner = () => {
       const scrollPosition = window.scrollY;
       gsap.to(modelRef.current, {
         x: scrollPosition * 0.5, // Adjust multiplier as needed
-        ease: "none"
+        ease: "none",
       });
       gsap.to(contentRef.current, {
         x: -scrollPosition * 0.5, // Adjust multiplier as needed
-        ease: "none"
+        ease: "none",
       });
     };
 
@@ -58,19 +58,19 @@ const Banner = () => {
       </div>
       <div
         ref={contentRef}
-        className="w-full flex flex-col justify-center items-start lg:ml-[50%] text-start  px-5"
+        className="w-full flex flex-col justify-center items-center  text-start  px-5"
       >
         <h1 className="text-xl mb-5 font-sans lg:text-3xl font-bold">
           Indulge in Pure Chocolate Bliss at Smoo-Cho
         </h1>
         <p className="text-sm italic text-gray-600">
-          "Every bite at Smoo-Cho is pure chocolate bliss, guaranteed."
+          "Experience the artistry of chocolate, crafted with passion."
         </p>
         <p className="text-sm italic text-gray-600">
-          "Every bite at Smoo-Cho is pure chocolate bliss, guaranteed."
+          "Savor every moment with our decadent chocolate creations."
         </p>
         <p className="text-sm italic text-gray-600">
-          "Every bite at Smoo-Cho is pure chocolate bliss, guaranteed."
+          "Turning every bite into a delightful memory."
         </p>
       </div>
     </div>

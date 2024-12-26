@@ -9,5 +9,7 @@
     "frameworksBackend": {
       "region": "asia-east1"
     }
-  }
+  },
+   "predeploy":"npm run build"
+  
 }

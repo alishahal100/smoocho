@@ -1,77 +1,61 @@
 import React, { useEffect, useRef } from "react";
-import { useInView } from "react-intersection-observer";
-import { gsap } from "gsap";
 
 const products = [
   {
     name: "Chocolate Fruits",
     description: "Fresh fruits coated in luscious chocolate.",
-    image: "/Banner.png",
+    image: "/1.jpg",
   },
   {
     name: "Chocolate Shots",
     description: "Velvety chocolate, a quick indulgence.",
-    image: "/shots.jpg",
+    image: "/2.jpg",
   },
   {
     name: "Chocolate Brownies",
     description: "Fudgy brownies with chocolate glaze.",
-    image: "/brownie.jpg",
+    image: "/4.jpg",
+  },
+  {
+    name: "Chocolate Brownies",
+    description: "Fudgy brownies with chocolate glaze.",
+    image: "/5.jpg",
   },
 ];
 
 const ProductCard = ({ product }) => {
   const cardRef = useRef(null);
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
 
   useEffect(() => {
-    if (inView) {
-      gsap.fromTo(
-        cardRef.current,
-        { opacity: 0, y: 20, scale: 0.95 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.9,
-          ease: "power3.in",
-        }
-      );
+    const card = cardRef.current;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            card.classList.add("animate-card");
+          } else {
+            card.classList.remove("animate-card");
+          }
+        });
+      },
+      { threshold: 0.5 } // Trigger when 50% of the card is in view
+    );
+
+    if (card) {
+      observer.observe(card);
     }
-  }, [inView]);
+
+    return () => {
+      if (card) observer.unobserve(card);
+    };
+  }, []);
 
   return (
     <div
-      ref={(el) => {
-        ref(el);
-        cardRef.current = el;
-      }}
-      className="relative overflow-hidden rounded-lg shadow-lg bg-gradient-to-r from-[#4e3012] to-[#2a1b0a] text-white"
+      ref={cardRef}
+      className="relative overflow-hidden rounded-lg shadow-lg bg-gradient-to-r from-[#4e3012] to-[#2a1b0a] text-white opacity-0 transform translate-y-8 transition-all duration-700"
     >
-      <div
-        className="group"
-        onMouseEnter={() => {
-          gsap.to(cardRef.current, {
-            scale: 1.05,
-            rotate: 1,
-            duration: 0.9,
-            ease: "power3.out",
-            boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.5)",
-          });
-        }}
-        onMouseLeave={() => {
-          gsap.to(cardRef.current, {
-            scale: 1,
-            rotate: 0,
-            duration: 0.9,
-            ease: "power3.out",
-            boxShadow: "none",
-          });
-        }}
-      >
+      <div className="group">
         <img
           src={product.image}
           alt={product.name}
@@ -91,9 +75,9 @@ const ProductCard = ({ product }) => {
 
 const Products = () => {
   return (
-    <div className="w-screen h-auto mt-10 mx-auto px-5 lg:px-20 py-10">
+    <div id="products" className="w-screen h-auto mt-10 mx-auto px-5 lg:px-20 py-10">
       <h1 className="text-xl lg:text-2xl font-bold mb-10 text-center">Our Products</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {products.map((product, index) => (
           <ProductCard key={index} product={product} />
         ))}
