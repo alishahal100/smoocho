@@ -5,6 +5,8 @@ import React, { useState, useEffect } from 'react';
 import Lenis from 'lenis';
 import {BrowserRouter as Router , Routes ,Route} from 'react-router-dom'
 import AboutUs from './component/AboutUs';
+import TermsAndConditions from './component/termsandconditions';
+import PrivacyPolicy from './component/PrivacyPolicy';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -45,6 +47,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<AboutUs/>} />
+              <Route path="/terms" element={<TermsAndConditions/>} />
+              <Route path="/privacy" element={<PrivacyPolicy/>} />
             </Routes>
           </Router>
         </div>

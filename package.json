@@ -16,6 +16,7 @@
     "@react-three/drei": "^9.111.2",
     "@react-three/fiber": "^8.17.5",
     "firebase": "^10.13.0",
+    "framer-motion": "^12.4.7",
     "gsap": "^3.12.5",
     "leaflet": "^1.9.4",
     "lenis": "^1.1.13",

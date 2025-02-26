@@ -2,6 +2,8 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  background-color: #f9f5f2;
+  color: rgb(236 72 153 / var(--tw-text-opacity)) /* #ec4899 */;
 }
 
 
